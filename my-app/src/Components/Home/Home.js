@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import logo from '../Logo/logo.svg';
 import '../../App.css';
 
-function Home() {
+class Home extends Component {
+
+    //eslint-disable-next-line
+    constructor() {
+      super();
+    }
+render() {
   return (
     <div className="App">
       <header className="App-header">
@@ -14,6 +20,7 @@ function Home() {
       </header>
     </div>
   );
+}
 }
 
 export default Home;
