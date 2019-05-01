@@ -9,21 +9,40 @@ class Dynamic extends Component {
     //eslint-disable-next-line
     constructor(props) {
       super(props);
+      this.state = {
+          isClicked : false
+      };
 
       this.handleClick = this.handleClick.bind(this);
     }
 
+
     handleClick() {
-        let items = [];
-        items.push(
-            <Grid/>
-        );
+        if(this.state.isClicked === false){
+        this.setState ({
+            isClicked: true
+        });
+    }
+    else if (this.state.isClicked === true){
+        this.setState ({
+            isClicked: false
+        });
+    }
+       
     }
 
     render() {
         let items = [];
+        if (this.state.isClicked === true){
+            items.push(
+                <Grid/>
+            );
+            
+            //this.setState({isClicked :false})
+    
+        }
         return (
-          <div className="App">
+          <div className="App Border">
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -31,10 +50,11 @@ class Dynamic extends Component {
             crossorigin="anonymous"
             />
             <header className="App-header">
+            {items}
               <p>
-              <Button variant="primary" onClick={this.handleClick}>Add a Grid</Button>
-              {items}
+              <Button variant="primary" onClick={this.handleClick}>Add a Box</Button>
               </p>
+              
             </header>
           </div>
         );
